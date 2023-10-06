@@ -24,6 +24,9 @@ export class Item extends Document {
   image: string;
 
   @Prop()
+  quantity: number;
+
+  @Prop()
   description: string;
 
   @Prop()

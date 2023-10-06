@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  BadRequestException,
 } from '@nestjs/common';
 import { ItemService } from './items.service';
 import { Item } from './schema/items.schema';
@@ -16,10 +17,20 @@ import { UpdateItemDto } from './dto/update-item.dto';
 export class ItemController {
   constructor(private readonly itemService: ItemService) {}
 
-  @Post('createItem')
-  async createItem(@Body() createItemDto: Item) {
-    const newItem = await this.itemService.createItem(createItemDto);
+  @Get('allItems')
+  async getAllItems() {
+    const allitems = await this.itemService.getAll();
 
-    return newItem;
+    return allitems;
+  }
+
+  @Post('createItem')
+  async createItem(@Body() createItemDto: CreateItemDto): Promise<Item> {
+    try {
+      const newItem = await this.itemService.createItem(createItemDto);
+      return newItem;
+    } catch (error) {
+      throw new BadRequestException('Error al crear el ítem.');
+    }
   }
 }

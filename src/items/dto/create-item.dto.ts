@@ -1,4 +1,4 @@
-import { ItemType } from '../enums/item-types.enum'; // Asegúrate de tener la ruta correcta
+import { ItemType } from '../enums/item-types.enum';
 
 export class CreateItemDto {
   name: string;
@@ -11,4 +11,5 @@ export class CreateItemDto {
   subCategory: string;
   isAvailable: boolean;
   showPrice: boolean;
+  quantity: number = 0;
 }
