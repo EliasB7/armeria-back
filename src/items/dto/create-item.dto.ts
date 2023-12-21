@@ -1,15 +1,17 @@
-import { ItemType } from '../enums/item-types.enum';
+import { ItemType } from '../enums/item-types.enum'; // Asegúrate de tener la ruta correcta
 
 export class CreateItemDto {
+  id: string;
   name: string;
   brand: string;
+  model: string;
   color: string;
   image: string;
   description: string;
   price: number;
+  quantity: number;
   category: ItemType;
-  subCategory: string;
+  // subCategory: string;
   isAvailable: boolean;
   showPrice: boolean;
-  quantity: number = 0;
 }

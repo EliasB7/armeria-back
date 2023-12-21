@@ -1,9 +1,10 @@
 export enum ItemType {
-  Guns = 'Guns',
-  Accessories = 'Accessories',
-  Ammo = 'Ammo',
-  Clothes = 'Clothes',
-  Gunpowder = 'Gunpowder',
+  Guns = 'Armas',
+  Accessories = 'Accesorios',
+  Ammo = 'Municion',
+  Clothes = 'Ropa',
+  Gunpowder = 'Polvora',
+  Reload = 'Recarga',
 }
 
 export enum SubCategoryGuns {

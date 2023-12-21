@@ -1,7 +1,18 @@
 import { PartialType } from '@nestjs/swagger';
-import { LoginAuthDto } from './login-auth.dto';
+import { LoginAdminAuthDto, LoginUserAuthDto } from './login-auth.dto';
 
-export class RegisterAuthDto extends PartialType(LoginAuthDto) {
+export class RegisterAdminAuthDto extends PartialType(LoginAdminAuthDto) {
   username: string;
+  password: string;
+}
+
+export class RegisterUserAuthDto extends PartialType(LoginUserAuthDto) {
+  name: string;
+  lastName: string;
+  street: string;
+  city: string;
+  zipCode: number;
+  email: string;
+  phone: number;
   password: string;
 }

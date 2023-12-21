@@ -12,6 +12,9 @@ import {
 @Schema()
 export class Item extends Document {
   @Prop()
+  id: string;
+
+  @Prop()
   name: string;
 
   @Prop()
@@ -21,9 +24,12 @@ export class Item extends Document {
   color: string;
 
   @Prop()
-  image: string;
+  model: string;
 
   @Prop()
+  image: string;
+
+  @Prop({ default: 0 })
   quantity: number;
 
   @Prop()
@@ -35,23 +41,30 @@ export class Item extends Document {
   @Prop({ enum: Object.values(ItemType) })
   category: ItemType;
 
-  @Prop({
-    type: [{ type: String }],
-    enum: [
-      ...Object.values(SubCategoryGuns),
-      ...Object.values(SubCategoryGunsShort),
-      ...Object.values(SubCategoryGunsLarge),
-      ...Object.values(SubCategoryGunsBarrel),
-      ...Object.values(SubcategoryClothes),
-    ],
-  })
-  subCategory: string[];
-
+  // @Prop({
+  //   type: [{ type: String }],
+  //   enum: [
+  //     ...Object.values(SubCategoryGuns),
+  //     ...Object.values(SubCategoryGunsShort),
+  //     ...Object.values(SubCategoryGunsLarge),
+  //     ...Object.values(SubCategoryGunsBarrel),
+  //     ...Object.values(SubcategoryClothes),
+  //   ],
+  // })
+  // // subCategory: string[];
   @Prop()
   isAvailable: boolean;
 
   @Prop()
   showPrice: boolean;
+
+  @Prop()
+  isUsed: boolean;
+
+  isInOffer: boolean;
+
+  @Prop()
+  compositeKey: string;
 }
 
 export const ItemSchema = SchemaFactory.createForClass(Item);
